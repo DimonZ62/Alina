@@ -4,8 +4,6 @@ import java.time.Clock;
 
 public class alina {
 
-
-
             //   import java.util.tangible
 
         // public class GlobalMembers {
@@ -72,14 +70,14 @@ public class alina {
 
             System.out.printf("you have %i core\n" + num_proc);
             double S = 0;
-            int r = 0;
+            int[] r = new int [num_proc];
             for (int i = 0; i < num_proc; i++) {
                 S += r[i];
             }
 
             System.out.printf("%.15lf\n" + 4 * S);
             System.out.printf("%i" + (end2 - start2) / 1000);
-            System.in.read();
+            //System.in.read();
         }
     }
 
