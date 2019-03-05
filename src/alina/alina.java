@@ -48,6 +48,14 @@ public class alina {
             System.out.printf("%i" + (end - start) / 1000);
 
 /*            //multicore programming
+
+https://habr.com/ru/post/182610/
+
+https://habr.com/ru/post/164487/
+
+https://metanit.com/java/tutorial/8.2.php
+
+
             int num_proc = std::thread.hardware_concurrency();
             double[] r = new double[num_proc];
             LinkedList<std::thread > qu = new LinkedList<std::thread > ();
