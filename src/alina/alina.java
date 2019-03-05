@@ -55,6 +55,8 @@ https://habr.com/ru/post/164487/
 
 https://metanit.com/java/tutorial/8.2.php
 
+http://developer.alexanderklimov.ru/android/java/thread.php
+
 
             int num_proc = std::thread.hardware_concurrency();
             double[] r = new double[num_proc];
