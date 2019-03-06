@@ -58,21 +58,32 @@ https://metanit.com/java/tutorial/8.2.php
 http://developer.alexanderklimov.ru/android/java/thread.php
 
 
-            int num_proc = std::thread.hardware_concurrency();
-            double[] r = new double[num_proc];
-            LinkedList<std::thread > qu = new LinkedList<std::thread > ();
-            std::thread t;
+            int num_proc = std::thread.hardware_concurrency();  максимально допустимое число одновременно выполняемых потоков.
+                                                                Если значение не определено или не поддаётся вычислению, возвращается 0.
+            double[] r = new double[num_proc];  Первая часть – объявление указателя, вторая часть – выделение памяти под массив
+            LinkedList<std::thread > qu = new LinkedList<std::thread > ();  реализует одностороннюю очередь.
+                                                                            В данном случае создали очередь с типом std::thread* , и присвоили ей имя qu.
+            std::thread t;  что-то делаем с потоком, при этом t является идентификатором потока.
 
-            s = clock();
+            s = clock();    возвращает число тактов, прошедшее с момента запуска программы.
             for (int i = 0; i < num_proc; i++) {
                 t = new std::thread (mp_integr, 0, 1, N, i, num_proc, r[i]);
                 qu.offer(t);
             }
+                    запуск цикла. До тех пор, пока выполняется цикл, происходит добавление нового элемента в поток.
+                    Для добавления в очередь нового элемента нужно воспользоваться функцией — push().
+                    В круглых скобках должно находится значение, которое мы хотим добавить.
+
             while (!qu.isEmpty()) {
                 t = qu.peek();
                 t.join();
                 qu.poll();
             }
+                    запуск цикла. До тех пор, пока выполняется цикл, происходит добавление нового элемента в поток.
+                    Для добавления в очередь нового элемента нужно воспользоваться функцией — push().
+                    В круглых скобках должно находится значение, которое мы хотим добавить.
+                    join() блокирует выполнение других потоков, пока не завершится дочерний.
+                    qu.pop() удаляет элемент из очереди.
             */
             long start2 = System.nanoTime();
             long end2 = System.nanoTime();
